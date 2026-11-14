@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Visite virtuelle de la gare</title>
+<link rel="stylesheet" href="vendor/psv/core/index.css">
+<link rel="stylesheet" href="vendor/psv/virtual-tour-plugin/index.css">
+<link rel="stylesheet" href="vendor/psv/map-plugin/index.css">
+<style>
+  html, body { margin: 0; height: 100%; background: #111; font-family: system-ui, sans-serif; }
+  #viewer { position: absolute; inset: 0; }
+  #levels {
+    position: absolute; top: 10px; right: 10px; z-index: 10;
+    font-size: 15px; padding: 8px 10px; border-radius: 8px; border: 0;
+    background: rgba(0,0,0,.65); color: #fff;
+  }
+  #warn { display: none; position: absolute; top: 10px; left: 10px; z-index: 15; max-width: min(520px, 70vw);
+          background: rgba(120,20,20,.9); color: #fff; font-size: 13px; padding: 8px 12px; border-radius: 8px; }
+  #warn ul { margin: 6px 0 0; padding-left: 18px; } #warn a { color: #fff; margin-left: 8px; }
+  #error { position: absolute; inset: 0; display: none; align-items: center; justify-content: center;
+           color: #fff; text-align: center; padding: 2em; z-index: 20; background: #111; }
+</style>
+<script type="importmap">
+{
+  "imports": {
+    "three": "./vendor/three/three.module.js",
+    "@photo-sphere-viewer/core": "./vendor/psv/core/index.module.js",
+    "@photo-sphere-viewer/virtual-tour-plugin": "./vendor/psv/virtual-tour-plugin/index.module.js",
+    "@photo-sphere-viewer/map-plugin": "./vendor/psv/map-plugin/index.module.js"
+  }
+}
+</script>
+</head>
+<body>
+<div id="viewer"></div>
+<select id="levels" aria-label="Niveau"></select>
+<div id="warn"></div>
+<div id="error"></div>
+<script type="module" src="app.js"></script>
+</body>
+</html>

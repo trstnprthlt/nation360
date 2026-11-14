@@ -1,0 +1,22 @@
+id;nom;niveau;x;y;cap;fichier;liens;bloque
+N1_01;Mezzanine - couloir 1;-1;100;400;0;panos/N1_01.jpg;;
+N1_02;Mezzanine - couloir 2;-1;200;400;0;panos/N1_02.jpg;;
+N1_03;Mezzanine - couloir 3;-1;300;400;90;panos/N1_03.jpg;;
+N1_04;Mezzanine - couloir 4;-1;400;400;0;panos/N1_04.jpg;;
+N1_05;Mezzanine - couloir 5;-1;500;400;0;panos/N1_05.jpg;;
+N1_06;Mezzanine - couloir 6;-1;600;400;200;panos/N1_06.jpg;;
+N1_07;Mezzanine - couloir 7;-1;700;400;0;panos/N1_07.jpg;;
+N1_08;Mezzanine - couloir 8;-1;800;400;0;panos/N1_08.jpg;;
+N1_09;Mezzanine - couloir 9;-1;900;400;0;panos/N1_09.jpg;;
+N1_10;Mezzanine - couloir 10;-1;1000;400;0;panos/N1_10.jpg;N2_01;
+N1_11;Mezzanine - vers sortie (1);-1;600;300;45;panos/N1_11.jpg;;
+N1_12;Mezzanine - sortie;-1;600;200;300;panos/N1_12.jpg;;
+N2_01;Quai - 1;-2;1000;500;180;panos/N2_01.jpg;;
+N2_02;Quai - 2;-2;900;500;0;panos/N2_02.jpg;;
+N2_03;Quai - 3;-2;800;500;0;panos/N2_03.jpg;;
+N2_04;Quai - 4;-2;700;500;120;panos/N2_04.jpg;;
+N2_05;Quai - 5;-2;600;500;0;panos/N2_05.jpg;;
+N2_06;Quai - 6;-2;500;500;0;panos/N2_06.jpg;;
+N2_07;Quai - 7;-2;400;500;0;panos/N2_07.jpg;;
+N2_08;Quai - 8;-2;300;500;270;panos/N2_08.jpg;;
+N2_09;Quai - 9;-2;200;500;0;panos/N2_09.jpg;;

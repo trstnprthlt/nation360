@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Visite virtuelle de la gare</title>
+<link rel="stylesheet" href="vendor/psv/core/index.css">
+<link rel="stylesheet" href="vendor/psv/virtual-tour-plugin/index.css">
+<link rel="stylesheet" href="volet.css">
+<script type="importmap">
+{
+  "imports": {
+    "three": "./vendor/three/three.module.js",
+    "@photo-sphere-viewer/core": "./vendor/psv/core/index.module.js",
+    "@photo-sphere-viewer/virtual-tour-plugin": "./vendor/psv/virtual-tour-plugin/index.module.js"
+  }
+}
+</script>
+</head>
+<body>
+<div id="app">
+  <aside id="side" aria-label="Plan de la gare">
+    <div id="side-inner">
+      <div id="side-head">
+        <div id="search">
+          <input id="q" type="search" placeholder="Rechercher un lieu (ex. quai, sortie)…" autocomplete="off" spellcheck="false" aria-label="Rechercher un lieu">
+          <ul id="results" role="listbox" hidden></ul>
+        </div>
+        <div id="level-row"><label for="levels">Niveau</label><select id="levels"></select></div>
+      </div>
+      <div id="plan">
+        <div id="plan-inner">
+          <img id="plan-img" alt="Plan du niveau" draggable="false">
+          <svg id="plan-lines"></svg>
+          <div id="plan-dots"></div>
+        </div>
+        <div id="plan-tools">
+          <button id="zin" title="Zoom avant" aria-label="Zoom avant">+</button>
+          <button id="zout" title="Zoom arrière" aria-label="Zoom arrière">−</button>
+          <button id="zfit" title="Voir tout le plan" aria-label="Voir tout le plan">⤢</button>
+          <button id="zme" title="Centrer sur ma position" aria-label="Centrer sur ma position">◎</button>
+        </div>
+        <div id="tip" hidden></div>
+        <div id="plan-msg" hidden></div>
+      </div>
+    </div>
+    <div id="splitter" title="Glisser pour élargir ou réduire le volet"></div>
+  </aside>
+  <main id="stage">
+    <div id="viewer"></div>
+    <div id="topbar">
+      <button id="toggle" aria-expanded="true" aria-controls="side">
+        <span class="when-open">◀ Masquer le plan</span><span class="when-closed">▶ Plan</span>
+      </button>
+      <div id="where" aria-live="polite"><span id="where-level"></span><span id="where-name"></span></div>
+    </div>
+    <div id="warn"></div>
+  </main>
+</div>
+<div id="error"></div>
+<script type="module" src="app.js"></script>
+</body>
+</html>

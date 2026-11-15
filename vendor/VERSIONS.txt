@@ -1,0 +1,3 @@
+Photo Sphere Viewer 5.15.1 (core, virtual-tour-plugin) - MIT - https://photo-sphere-viewer.js.org
+three.js 0.187.0 - MIT - https://threejs.org
+Fichiers copiés tels quels depuis npm. Pour mettre à jour : npm i, puis recopier index.module.js et index.css de chaque paquet.

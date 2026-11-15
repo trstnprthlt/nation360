@@ -8,5 +8,10 @@
   "nom": "Niveau -2 - Quai",
   "plan": "plans/niveau-2.png",
   "distance_max": 130
+ },
+ "-3": {
+  "nom": "Niveau salle INF",
+  "plan": "plans/Niveau salle INFERIEURE.jpg",
+  "distance_max": 130
  }
 }

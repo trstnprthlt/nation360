@@ -1,16 +1,16 @@
 {
  "-1": {
-  "nom": "Niveau -1 - Mezzanine",
-  "plan": "plans/niveau-1.png",
+  "nom": "Débouchés voirie",
+  "plan": "plans/Niveau DEBOUCHES VOIRIE.jpg",
   "distance_max": 130
  },
  "-2": {
-  "nom": "Nivoo -2 - Quai",
-  "plan": "plans/niveau-2.png",
+  "nom": "Salle Supérieure",
+  "plan": "plans/Niveau salle SUPERIEURE.jpg",
   "distance_max": 130
  },
  "-3": {
-  "nom": "Niveau salle INF",
+  "nom": "Salle Inférieure",
   "plan": "plans/Niveau salle INFERIEURE.jpg",
   "distance_max": 130
  }

@@ -45,6 +45,9 @@ body.collapsed #side { width: 0; border-right: 0; }
 #me { position: absolute; width: 0; height: 0; transform: scale(var(--inv)); pointer-events: none; z-index: 1; }
 #me svg { position: absolute; left: -40px; top: -40px; width: 80px; height: 80px; overflow: visible; }
 #me path { fill: rgba(45,140,255,.45); stroke: rgba(45,140,255,.9); stroke-width: 1; }
+#me .me-dot { display: none; }
+#me.ghost .me-dot { display: block; fill: #9a9a9a; stroke: #fff; stroke-width: 2; }
+#me.ghost path { fill: rgba(150,150,150,.45); stroke: rgba(190,190,190,.9); }
 #plan-tools { position: absolute; right: 10px; bottom: 10px; display: flex; flex-direction: column; gap: 6px; z-index: 5; }
 #plan-tools button { width: 34px; height: 34px; border-radius: 8px; border: 1px solid var(--line); background: rgba(20,23,29,.92);
                      color: var(--txt); font-size: 18px; line-height: 1; cursor: pointer; }

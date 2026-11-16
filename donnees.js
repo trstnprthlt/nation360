@@ -70,7 +70,7 @@ export function buildNodes(rows, levels) {
     const lv = levels[a.level];
     const dmax = lv.distance_max ?? 130;
     const angle = Number.isFinite(Number(lv.angle_direction)) && lv.angle_direction !== '' && lv.angle_direction != null
-      ? Number(lv.angle_direction) : 30;
+      ? Number(lv.angle_direction) : 20;
     const near = [];
     for (const b of nodes.values()) {
       if (a === b || a.level !== b.level) continue;

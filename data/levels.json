@@ -7,7 +7,7 @@
  "-2": {
   "nom": "Salle Supérieure",
   "plan": "plans/Niveau salle SUPERIEURE.jpg",
-  "distance_max": 250
+  "distance_max": 400
  },
  "-3": {
   "nom": "Salle Inférieure",

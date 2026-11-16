@@ -27,6 +27,12 @@ function warn(problems) {
 
 try {
   const [csv, levels] = await Promise.all([load('data/photos.csv', true), load('data/levels.json')]);
+  // options facultatives : fichier absent = valeurs par défaut ; fichier illisible = message
+  let options = {};
+  try {
+    const r = await fetch('data/options.json');
+    if (r.ok) options = await r.json();
+  } catch { setTimeout(() => warn(['data/options.json illisible (JSON invalide) : options par défaut utilisées']), 0); }
   const { nodes: data, problems } = buildNodes(parseCsv(csv), levels);
   warn(problems);
   if (!data.length) throw new Error('aucune photo valide dans data/photos.csv');
@@ -68,6 +74,7 @@ try {
   const panel = createPlanPanel({
     levels,
     nodes,
+    options,
     onSelect: (id) => { if (tour.getCurrentNode()?.id !== id) tour.setCurrentNode(id); },
   });
 

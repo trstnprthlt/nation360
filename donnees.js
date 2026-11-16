@@ -63,14 +63,14 @@ export function buildNodes(rows, levels) {
 
   // 1. Voisines candidates de chaque photo : même niveau, dans le rayon `distance_max`, non bloquées.
   //    On les parcourt de la plus proche à la plus lointaine et on ne garde une voisine que si aucune voisine
-  //    déjà gardée n'est dans la même direction (écart d'angle <= `angle_direction`, 45° par défaut).
+  //    déjà gardée n'est dans la même direction (écart d'angle <= `angle_direction`, 30° par défaut).
   //    `angle_direction: 0` désactive ce tri (toutes les photos du rayon sont reliées).
   const kept = new Map();
   for (const a of nodes.values()) {
     const lv = levels[a.level];
     const dmax = lv.distance_max ?? 130;
     const angle = Number.isFinite(Number(lv.angle_direction)) && lv.angle_direction !== '' && lv.angle_direction != null
-      ? Number(lv.angle_direction) : 45;
+      ? Number(lv.angle_direction) : 30;
     const near = [];
     for (const b of nodes.values()) {
       if (a === b || a.level !== b.level) continue;

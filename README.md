@@ -88,7 +88,3 @@ Il faut un serveur local : l'extension *Live Server* de VS Code, ou `python3 -m 
   Conçu pour ordinateur ; pas adapté à un petit écran de téléphone.
 - La position `x,y` de chaque photo est saisie à la main (pas de GPS sous terre).
 - Pas de fusion des photos : on saute d'un panorama à l'autre avec un fondu, comme Street View.
-
-## Licences
-
-Code de ce dépôt : MIT. `vendor/` : Photo Sphere Viewer 5.15.1 et three.js (MIT), voir `vendor/VERSIONS.txt`.

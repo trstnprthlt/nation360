@@ -47,6 +47,10 @@ Les liens entre photos voisines d'un même niveau sont **calculés automatiqueme
 sur le plan est inférieure à `distance_max` (dans `levels.json`, 130 par défaut, à régler selon l'échelle du plan : environ
 1,5 fois l'écart entre deux photos). Les escaliers se déclarent dans `liens` (un sens suffit).
 
+Dans `levels.json`, paramétrer chaque plan ainsi : 
+"-1": { "nom": "Niveau -1 - Mezzanine", "plan": "plans/niveau-1.jpg", "distance_max": 400, "angle_direction": 45 }
+`angle direction` (facultatif, par défaut définit dans `donnees.js` à 30°) : pour les flèches de navigation, on garde une photo voisine seulement si aucune voisine plus proche n'est déjà gardée dans cet angle.
+
 Une erreur dans le tableur (id en double, nombre illisible, lien vers un id inconnu, photo isolée, groupe de photos non relié)
 est signalée par un encadré rouge en haut à gauche de la page.
 

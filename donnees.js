@@ -33,6 +33,9 @@ export function parseCsv(text) {
 
 const ids = (cell) => (cell || '').split(/[\s,;]+/).filter(Boolean);
 
+// écart entre deux directions, en degrés (0 à 180)
+const angleDiff = (p, q) => Math.abs((((p - q) % 360) + 540) % 360 - 180);
+
 // angle en degrés, sens horaire depuis le HAUT du plan, de a vers b
 const bearing = (a, b) => ((Math.atan2(b.x - a.x, -(b.y - a.y)) * 180) / Math.PI + 360) % 360;
 
@@ -57,16 +60,41 @@ export function buildNodes(rows, levels) {
 
   const pairs = new Set();
   const add = (a, b) => pairs.add(a + '\u0000' + b);
+
+  // 1. Voisines candidates de chaque photo : même niveau, dans le rayon `distance_max`, non bloquées.
+  //    On les parcourt de la plus proche à la plus lointaine et on ne garde une voisine que si aucune voisine
+  //    déjà gardée n'est dans la même direction (écart d'angle <= `angle_direction`, 45° par défaut).
+  //    `angle_direction: 0` désactive ce tri (toutes les photos du rayon sont reliées).
+  const kept = new Map();
   for (const a of nodes.values()) {
-    const dmax = levels[a.level].distance_max ?? 130;
+    const lv = levels[a.level];
+    const dmax = lv.distance_max ?? 130;
+    const angle = Number.isFinite(Number(lv.angle_direction)) && lv.angle_direction !== '' && lv.angle_direction != null
+      ? Number(lv.angle_direction) : 45;
+    const near = [];
     for (const b of nodes.values()) {
       if (a === b || a.level !== b.level) continue;
       if (a.block.has(b.id) || b.block.has(a.id)) continue;
-      if (Math.hypot(a.x - b.x, a.y - b.y) <= dmax) add(a.id, b.id);
+      const d = Math.hypot(a.x - b.x, a.y - b.y);
+      if (d <= dmax) near.push({ id: b.id, d, brg: bearing(a, b) });
     }
+    near.sort((p, q) => (Math.abs(p.d - q.d) > 1e-6 ? p.d - q.d : p.id < q.id ? -1 : 1));
+    const mine = [];
+    for (const c of near) {
+      const sameWay = angle > 0 && mine.some((k) => angleDiff(k.brg, c.brg) <= angle + 1e-9);
+      if (!sameWay) mine.push(c);
+    }
+    kept.set(a.id, new Set(mine.map((k) => k.id)));
+  }
+  // 2. Un lien n'existe que si les DEUX photos le gardent : les liens sont toujours dans les deux sens
+  //    (flèche aller et retour, trait du plan cohérent) et aucune photo ne devient inaccessible.
+  for (const [a, set] of kept) for (const b of set) if (kept.get(b).has(a)) add(a, b);
+
+  // 3. Liens déclarés à la main (colonne `liens`) : toujours conservés, dans les deux sens, jamais triés.
+  for (const a of nodes.values()) {
     for (const t of a.extra) {
       if (!nodes.has(t)) { problems.push(`${a.id} : lien vers un id inconnu « ${t} »`); continue; }
-      add(a.id, t); add(t, a.id); // toujours dans les deux sens
+      add(a.id, t); add(t, a.id);
     }
   }
   for (const key of [...pairs].sort()) {

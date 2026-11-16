@@ -1,8 +1,8 @@
 id;nom;niveau;x;y;cap;fichier;liens;bloque
-N1_01;Mezzanine - couloir 1;-1;100;400;0;panos/N1_01.jpg;;
-N1_02;Mezzanine - couloir 2;-1;200;400;0;panos/N1_02.jpg;;
-N1_03;Mezzanine - couloir 3;-1;300;400;90;panos/N1_03.jpg;;
-N1_04;Mezzanine - couloir 4;-1;400;400;0;panos/N1_04.jpg;;
+N1_01;CR123.1 2026;-1;100;400;0;panos/N1_01.jpg;;
+N1_02;CR123.2 2026;-1;200;400;0;panos/N1_02.jpg;;
+N1_03;CR123.3 2026;-1;300;400;90;panos/N1_03.jpg;;
+N1_04;CR123.4 2026;-1;400;400;0;panos/N1_04.jpg;;
 N1_05;Mezzanine - couloir 5;-1;500;400;0;panos/N1_05.jpg;;
 N1_06;Mezzanine - couloir 6;-1;600;400;200;panos/N1_06.jpg;;
 N1_07;Mezzanine - couloir 7;-1;700;400;0;panos/N1_07.jpg;;

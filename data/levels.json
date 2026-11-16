@@ -1,17 +1,5 @@
 {
- "-1": {
-  "nom": "Débouchés voirie",
-  "plan": "plans/Niveau DEBOUCHES VOIRIE.jpg",
-  "distance_max": 130
- },
- "-2": {
-  "nom": "Salle Supérieure",
-  "plan": "plans/Niveau salle SUPERIEURE.jpg",
-  "distance_max": 400
- },
- "-3": {
-  "nom": "Salle Inférieure",
-  "plan": "plans/Niveau salle INFERIEURE.jpg",
-  "distance_max": 250
- }
+ "-1": { "nom": "Débouchés voirie", "plan": "plans/Niveau DEBOUCHES VOIRIE.jpg", "distance_max": 130 },
+ "-2": { "nom": "Salle Supérieure", "plan": "plans/Niveau salle SUPERIEURE.jpg", "distance_max": 400 },
+ "-3": { "nom": "Salle Inférieure", "plan": "plans/Niveau salle INFERIEURE.jpg", "distance_max": 250 }
 }

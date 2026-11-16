@@ -12,7 +12,7 @@ N1_10;Mezzanine - couloir 10;-1;1000;400;0;panos/N1_10.jpg;N2_01;
 N1_11;Mezzanine - vers sortie (1);-1;600;300;45;panos/N1_11.jpg;;
 N1_12;Mezzanine - sortie;-1;600;200;300;panos/N1_12.jpg;;
 N2_01;Quai - 1;-2;1000;500;180;panos/N2_01.jpg;;
-N2_02;Quai - 2;-2;900;800;0;panos/N2_02.jpg;;
+N2_02;Quai - 2;-2;900;600;0;panos/N2_02.jpg;;
 N2_03;Quai - 3;-2;800;500;0;panos/N2_03.jpg;;
 N2_04;Quai - 4;-2;700;500;120;panos/N2_04.jpg;;
 N2_05;Quai - 5;-2;600;500;0;panos/N2_05.jpg;;

@@ -9,7 +9,8 @@ const store = {
   set(k, v) { try { localStorage.setItem(k, v); } catch { /* stockage indisponible : on ignore */ } },
 };
 
-export function createPlanPanel({ levels, nodes, onSelect }) {
+export function createPlanPanel({ levels, nodes, onSelect, options = {} }) {
+  const ghostOn = options.position_autres_niveaux !== false;
   const levelKeys = Object.keys(levels);
   const byId = new Map(nodes.map((n) => [n.id, n]));
   const levelName = (k) => levels[k]?.nom || k;
@@ -153,7 +154,7 @@ export function createPlanPanel({ levels, nodes, onSelect }) {
     }
     me = document.createElement('div');
     me.id = 'me';
-    me.innerHTML = '<svg viewBox="-40 -40 80 80"><g class="cone"><path d="M0 0 L-17 -36 A40 40 0 0 1 17 -36 Z"/></g></svg>';
+    me.innerHTML = '<svg viewBox="-40 -40 80 80"><g class="cone"><path d="M0 0 L-17 -36 A40 40 0 0 1 17 -36 Z"/></g><circle class="me-dot" r="6.5"/></svg>';
     dotsBox.appendChild(me);
     for (const n of list) {
       const d = document.createElement('div');
@@ -172,8 +173,13 @@ export function createPlanPanel({ levels, nodes, onSelect }) {
     const n = byId.get(currentId);
     dotsBox.querySelector('.dot.current')?.classList.remove('current');
     if (!me) return;
-    if (!n || n.level !== shown) { me.style.display = 'none'; return; }
-    dotsBox.querySelector(`.dot[data-id="${CSS.escape(n.id)}"]`)?.classList.add('current');
+    if (!n) { me.style.display = 'none'; return; }
+    const same = n.level === shown;
+    // autre niveau : position « fantôme » grise, seulement si l'option est active et si elle tombe sur le plan
+    const inside = n.x >= 0 && n.y >= 0 && n.x <= size.w && n.y <= size.h;
+    if (!same && !(ghostOn && inside)) { me.style.display = 'none'; return; }
+    me.classList.toggle('ghost', !same);
+    if (same) dotsBox.querySelector(`.dot[data-id="${CSS.escape(n.id)}"]`)?.classList.add('current');
     me.style.display = '';
     me.style.left = n.x + 'px'; me.style.top = n.y + 'px';
     const a = ((yaw % 360) + 360) % 360;
